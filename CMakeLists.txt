@@ -15,16 +15,8 @@ endif()
 
 # we currently still rely on boost for its `crc` component
 find_package(Boost REQUIRED)
-find_package(diagnostic_updater REQUIRED)
-find_package(laser_proc REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(rclcpp_components REQUIRED)
-find_package(sensor_msgs REQUIRED)
-find_package(std_srvs REQUIRED)
-find_package(urg_c REQUIRED)
-find_package(urg_node_msgs REQUIRED)
 
-ament_auto_add_library(${PROJECT_NAME} SHARED 
+ament_auto_add_library(urg_node SHARED 
   src/urg_c_wrapper.cpp
   src/urg_node.cpp
 )
@@ -36,7 +28,7 @@ rclcpp_components_register_node(urg_node
 ament_auto_add_executable(getID src/get_id.cpp)
 
 install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
+  DESTINATION share/urg_node
 )
 
 if(BUILD_TESTING)
