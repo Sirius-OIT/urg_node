@@ -15,6 +15,9 @@ endif()
 
 # we currently still rely on boost for its `crc` component
 find_package(Boost REQUIRED)
+find_package(laser_proc REQUIRED)
+find_package(urg_c REQUIRED)
+find_package(urg_node_msgs REQUIRED)
 
 ament_auto_add_library(urg_node SHARED 
   src/urg_c_wrapper.cpp
